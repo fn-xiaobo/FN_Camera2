@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\assets"/><source path="D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\debug\assets"/></dataSet></merger>

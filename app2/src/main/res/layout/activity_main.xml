@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ts.app2.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!--相机预览部分-->
+        <TextureView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="520dp"
+            android:layout_centerVertical="true" />
+
+        <com.ts.app2.VerticalSeekBar.VerticalSeekBar
+            android:id="@+id/verticalSeekBar"
+            android:layout_width="30dp"
+            android:layout_height="200dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            />
+
+    </RelativeLayout>
+
+    <SeekBar
+        android:id="@+id/sb_scale"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--控制部分-->
+    <RelativeLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="#7c666666">
+
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/but_press_nomal"
+            android:src="@drawable/ic_close_black_24dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/camera_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_take_photo_selector"
+            android:text="拍照"
+            android:textColor="#fff" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/but_press_nomal"
+            android:src="@drawable/ic_check_black_24dp"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/iv_flash"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/but_press_nomal"
+            android:src="@drawable/ic_highlight_black_24dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

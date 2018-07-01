@@ -18,7 +18,7 @@ android {
     }
 
         /*
-        解决下面错误:
+        解决下面错误: 
          * Error:Execution failed for task ':app2:preDebugAndroidTestBuild'.
          > Conflict with dependency 'com.android.support:support-annotations' in project ':app2'.
          Resolved versions for app (26.1.0) and test app (27.1.1)

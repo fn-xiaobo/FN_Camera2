@@ -22,7 +22,7 @@ android {
          * Error:Execution failed for task ':app2:preDebugAndroidTestBuild'.
          > Conflict with dependency 'com.android.support:support-annotations' in project ':app2'.
          Resolved versions for app (26.1.0) and test app (27.1.1)
-         differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details. 
+         differ. See https://d.android.com/r/tools/test-apk-dependency-conflicts.html for details.  
          */
     configurations.all {
         resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'

@@ -1159,6 +1159,8 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         if (mIsRecordingVideo) {
             stopRecordingVideo();
             showFinishDialog();//退出提示
+        }else{
+            super.onBackPressed();
         }
     }
 

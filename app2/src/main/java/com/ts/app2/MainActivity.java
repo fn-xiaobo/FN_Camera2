@@ -504,6 +504,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //设置TextureView的缓冲区大小
                 texture.setDefaultBufferSize(mPreViewSize.getWidth(), mPreViewSize.getHeight());
+                
+                //https://blog.csdn.net/u011122331/article/details/47149773 解决变形尝试
+                RectF surfaceDimensions = new RectF(0,0,mPreViewSize.getWidth(),mPreViewSize.getHeight());
+                Matrix matrix = new Matrix();
+                matrix.setRectToRect(previewRect, surfaceDimensions, Matrix.ScaleToFit.FILL); 
+                texture.setTransform(matrix);
 
                 //获取Surface显示预览数据
                 surface = new Surface(texture);

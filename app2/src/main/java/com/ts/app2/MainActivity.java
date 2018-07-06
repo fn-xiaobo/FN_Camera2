@@ -12,7 +12,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.ImageFormat;
+import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
@@ -141,6 +143,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //----------------------------------- 这部分是出自 google demo end -----------------------------------
 
 
+    /**
+     * 使得在“setContentView()"之前生效，所以配置在此方法中。
+     *
+     * @param newBase
+     */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        ScreenUtil.resetDensity(this);
+    }
+
+    /**
+     * 在某种情况下需要Activity的视图初始完毕Application中DisplayMetrics相关参数才能起效果，例如toast.
+     *
+     * @param
+     */
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        ScreenUtil.resetDensity(this.getApplicationContext());
+
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -235,6 +261,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 picRect = new Rect(maxZoomrect);
 
+
+
                 // 获取摄像头支持的配置属性
                 StreamConfigurationMap map = mCameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 
@@ -246,6 +274,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 // 获取最佳的预览尺寸
                 choosePreSize(i, i1, map, largest);
+
+                //https://blog.csdn.net/u011122331/article/details/47149773 解决变形尝试
 
                 // 创建一个ImageReader对象，用于获取摄像头的图像数据
                 mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(), ImageFormat.JPEG, 10);
@@ -320,6 +350,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 Log.e(TAG, "Display rotation is invalid: " + displayRotation);
         }
+
+
         android.graphics.Point displaySize = new android.graphics.Point();
         getWindowManager().getDefaultDisplay().getSize(displaySize);
         int rotatedPreviewWidth = i;
@@ -378,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e(TAG, "Couldn't find any suitable preview size");
             return choices[0];
         }
+
     }
 
 
@@ -505,12 +538,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //设置TextureView的缓冲区大小
                 texture.setDefaultBufferSize(mPreViewSize.getWidth(), mPreViewSize.getHeight());
                 
-                //https://blog.csdn.net/u011122331/article/details/47149773 解决变形尝试
-                RectF surfaceDimensions = new RectF(0,0,mPreViewSize.getWidth(),mPreViewSize.getHeight());
-                Matrix matrix = new Matrix();
-                matrix.setRectToRect(previewRect, surfaceDimensions, Matrix.ScaleToFit.FILL); 
-                texture.setTransform(matrix);
-
                 //获取Surface显示预览数据
                 surface = new Surface(texture);
 

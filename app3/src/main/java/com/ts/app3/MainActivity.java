@@ -47,6 +47,7 @@ import android.widget.Toast;
 
 import com.ts.app3.VerticalSeekBar.VerticalSeekBar;
 import com.ts.app3.utils.FnProgressDialog;
+import com.ts.app3.utils.ScreenUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -148,6 +149,33 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     //----------------------------------- 这部分是出自 google demo end -----------------------------------
 
 
+    //------------------------------ 屏幕适配 start ------------------------------
+
+    /**
+     * 使得在“setContentView()"之前生效，所以配置在此方法中。
+     *
+     * @param newBase
+     */
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        ScreenUtil.resetDensity(this);
+    }
+
+    /**
+     * 在某种情况下需要Activity的视图初始完毕Application中DisplayMetrics相关参数才能起效果，例如toast.
+     *
+     * @param
+     */
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        ScreenUtil.resetDensity(this.getApplicationContext());
+
+    }
+
+    //------------------------------ 屏幕适配 end ------------------------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -183,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
         mVerticalSeekBar = (VerticalSeekBar) findViewById(R.id.verticalSeekBar);
         mVerticalSeekBar.setThumb(R.mipmap.color_seekbar_thum);
-        mVerticalSeekBar.setThumbSizePx(70, 70);
+        mVerticalSeekBar.setThumbSizePx(50, 50);
         mVerticalSeekBar.setProgress(0);
         mVerticalSeekBar.setMaxProgress(100);
 
@@ -329,13 +357,15 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 Log.e(TAG, "Display rotation is invalid: " + displayRotation);
         }
         android.graphics.Point displaySize = new android.graphics.Point();
-        getWindowManager().getDefaultDisplay().getSize(displaySize);
+        getWindowManager().getDefaultDisplay().getSize(displaySize);//这在自定义控件中是获取屏幕宽高的方法
         int rotatedPreviewWidth = i;
         int rotatedPreviewHeight = i1;
         int maxPreviewWidth = displaySize.x;
         int maxPreviewHeight = displaySize.y;
 
+        //此时 swappedDimensions =true;
         if (swappedDimensions) {
+
             rotatedPreviewWidth = i1;
             rotatedPreviewHeight = i;
             maxPreviewWidth = displaySize.y;
@@ -357,18 +387,20 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     //经过对比测量,选出最佳的预览尺寸
     private Size chooseOptimalSize(Size[] choices, int textureViewWidth, int textureViewHeight, int maxWidth, int maxHeight, Size aspectRatio) {
-
+        // 获取摄像头支持的配置属性
         // Collect the supported resolutions that are at least as big as the preview Surface
         List<Size> bigEnough = new ArrayList<>();
-        // Collect the supported resolutions that are smaller than the preview Surface
+        // Collect the supported resolutions that are smaller than the preview Surface  // 获取摄像头支持的最大尺寸
         List<Size> notBigEnough = new ArrayList<>();
         int w = aspectRatio.getWidth();
         int h = aspectRatio.getHeight();
+
         for (Size option : choices) {
-            if (option.getWidth() <= maxWidth && option.getHeight() <= maxHeight &&
-                    option.getHeight() == option.getWidth() * 3 / 4) {
-                if (option.getWidth() >= textureViewWidth &&
-                        option.getHeight() >= textureViewHeight) {
+
+            if (option.getWidth() <= maxWidth && option.getHeight() <= maxHeight &&option.getHeight() == option.getWidth() * 3 / 4) {
+
+                if (option.getWidth() >= textureViewWidth &&option.getHeight() >= textureViewHeight) {
+
                     bigEnough.add(option);
                 } else {
                     notBigEnough.add(option);
@@ -379,10 +411,15 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         // Pick the smallest of those big enough. If there is no one big enough, pick the
         // largest of those not big enough.
         if (bigEnough.size() > 0) {
+
             return Collections.min(bigEnough, new CompareSizeByArea());
+
         } else if (notBigEnough.size() > 0) {
+
             return Collections.max(notBigEnough, new CompareSizeByArea());
+
         } else {
+
             Log.e(TAG, "Couldn't find any suitable preview size");
             return choices[0];
         }

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
 MERGED from [pub.devrel:easypermissions:0.4.2] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\easypermissions-0.4.2.aar\2938088a8d19bb8c5a18ee8e3a20a2a4\AndroidManifest.xml:2:1-19:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c86ff9139fe8d78888a61b649d722c5b\AndroidManifest.xml:17:1-31:12
 MERGED from [jp.wasabeef:glide-transformations:2.0.1] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\glide-transformations-2.0.1.aar\fa89e0e3960793fb4d38f43f6fb53ca2\AndroidManifest.xml:2:1-12:12
@@ -17,20 +17,20 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\77167\.gr
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\de5dad805c1a900b127f7137abc0d378\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\9eb47f42be4122c589d9290bd817c46e\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\d7c66e01cc3ca45e45346289bab9db93\AndroidManifest.xml:17:1-30:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
 	package
 		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:3:5-26
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-36:12
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:1-37:12
 		INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:2:11-69
@@ -87,7 +87,7 @@ ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManif
 	android:name
 		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:18:22-76
 application
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:20:5-34:19
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:20:5-35:19
 MERGED from [pub.devrel:easypermissions:0.4.2] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\easypermissions-0.4.2.aar\2938088a8d19bb8c5a18ee8e3a20a2a4\AndroidManifest.xml:11:5-17:19
 MERGED from [pub.devrel:easypermissions:0.4.2] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\easypermissions-0.4.2.aar\2938088a8d19bb8c5a18ee8e3a20a2a4\AndroidManifest.xml:11:5-17:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c86ff9139fe8d78888a61b649d722c5b\AndroidManifest.xml:25:5-29:19
@@ -113,31 +113,33 @@ MERGED from [com.android.support:support-compat:26.1.0] C:\Users\77167\.gradle\c
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\d7c66e01cc3ca45e45346289bab9db93\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\77167\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\d7c66e01cc3ca45e45346289bab9db93\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:25:9-35
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:26:9-35
 	android:label
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:23:9-41
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:24:9-41
 	android:roundIcon
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:24:9-54
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:25:9-54
 	android:icon
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:22:9-43
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:23:9-43
 	android:allowBackup
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:21:9-35
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:22:9-35
 	android:theme
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:26:9-40
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:27:9-40
+	android:name
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:21:9-38
 activity#com.ts.app3.MainActivity
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:27:9-33:20
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:28:9-34:20
 	android:name
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:27:19-47
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:28:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:28:13-32:29
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:29:13-33:29
 action#android.intent.action.MAIN
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:29:17-69
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:30:17-69
 	android:name
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:29:25-66
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:30:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:31:17-77
+ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:32:17-77
 	android:name
-		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:31:27-74
+		ADDED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml:32:27-74
 uses-sdk
 INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Android\WorkSpace\StudioDemo\FN_Camera2\app3\src\main\AndroidManifest.xml

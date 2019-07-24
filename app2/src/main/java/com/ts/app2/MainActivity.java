@@ -102,12 +102,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * Max preview width that is guaranteed by Camera2 API
      */
-    private static final int MAX_PREVIEW_WIDTH = 1920;
+    private static final int MAX_PREVIEW_WIDTH = 1080;
 
     /**
      * Max preview height that is guaranteed by Camera2 API
      */
-    private static final int MAX_PREVIEW_HEIGHT = 1080;
+    private static final int MAX_PREVIEW_HEIGHT = 1920;
 
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
 
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mVerticalSeekBar = (VerticalSeekBar) findViewById(R.id.verticalSeekBar);
         mVerticalSeekBar.setThumb(R.mipmap.color_seekbar_thum);
-        mVerticalSeekBar.setThumbSizePx(70, 70);
+        mVerticalSeekBar.setThumbSizePx(50, 50);
         mVerticalSeekBar.setProgress(0);
         mVerticalSeekBar.setMaxProgress(100);
 
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextureView.SurfaceTextureListener surfaceTextureListener = new TextureView.SurfaceTextureListener() {
         @SuppressLint("MissingPermission")
         @Override
-        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
+        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int width, int height) {
 
             //工作线程,可以配合 Handler 使用,实现对线程性能的优化 https://blog.csdn.net/isee361820238/article/details/52589731
             mCeamera3 = new HandlerThread("Ceamera3");
@@ -261,8 +261,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 picRect = new Rect(maxZoomrect);
 
-
-
                 // 获取摄像头支持的配置属性
                 StreamConfigurationMap map = mCameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 
@@ -273,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mPreViewSize = map.getOutputSizes(SurfaceTexture.class)[0];//设置输入的预览尺寸
 
                 // 获取最佳的预览尺寸
-                choosePreSize(i, i1, map, largest);
+                choosePreSize(width, height, map, largest);
 
                 //https://blog.csdn.net/u011122331/article/details/47149773 解决变形尝试
 
@@ -288,7 +286,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //获取权限，打开照相机
 
                     //开启摄像头,监听开启状态
-                    mManager.openCamera(cameraid, cameraOpenCallBack, mHandler);
+                    mManager.openCamera("1", cameraOpenCallBack, mHandler);
 
                 } else {
                     //第二个参数是被拒绝后再次申请该权限的解释
@@ -325,7 +323,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-    private void choosePreSize(int i, int i1, StreamConfigurationMap map, Size largest) {
+    private void choosePreSize(int width, int height, StreamConfigurationMap map, Size largest) {
 
         int displayRotation = getWindowManager().getDefaultDisplay().getRotation();
 
@@ -351,19 +349,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.e(TAG, "Display rotation is invalid: " + displayRotation);
         }
 
-
         android.graphics.Point displaySize = new android.graphics.Point();
         getWindowManager().getDefaultDisplay().getSize(displaySize);
-        int rotatedPreviewWidth = i;
-        int rotatedPreviewHeight = i1;
+
+        int rotatedPreviewWidth = width;
+        int rotatedPreviewHeight = height;
         int maxPreviewWidth = displaySize.x;
         int maxPreviewHeight = displaySize.y;
 
+        //竖屏的时候走了这里,把这里注释后,同时将 MAX_PREVIEW_WIDTH = 1080;  MAX_PREVIEW_HEIGHT = 1920; 预览没有变形
         if (swappedDimensions) {
-            rotatedPreviewWidth = i1;
-            rotatedPreviewHeight = i;
-            maxPreviewWidth = displaySize.y;
-            maxPreviewHeight = displaySize.x;
+//            rotatedPreviewWidth = height;
+//            rotatedPreviewHeight = width;
+//            maxPreviewWidth = displaySize.y;
+//            maxPreviewHeight = displaySize.x;
         }
 
         if (maxPreviewWidth > MAX_PREVIEW_WIDTH) {
@@ -388,14 +387,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         List<Size> notBigEnough = new ArrayList<>();
         int w = aspectRatio.getWidth();
         int h = aspectRatio.getHeight();
+
         for (Size option : choices) {
-            if (option.getWidth() <= maxWidth && option.getHeight() <= maxHeight &&
-                    option.getHeight() == option.getWidth() * 3 / 4) {
-                if (option.getWidth() >= textureViewWidth &&
-                        option.getHeight() >= textureViewHeight) {
+
+            if (option.getWidth() <= maxWidth && option.getHeight() <= maxHeight && option.getHeight() == option.getWidth() * 3 / 4) {
+
+                if (option.getWidth() >= textureViewWidth && option.getHeight() >= textureViewHeight) {
+
                     bigEnough.add(option);
+
                 } else {
+
                     notBigEnough.add(option);
+
                 }
             }
         }
@@ -403,11 +407,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Pick the smallest of those big enough. If there is no one big enough, pick the
         // largest of those not big enough.
         if (bigEnough.size() > 0) {
+
             return Collections.min(bigEnough, new CompareSizeByArea());
+
         } else if (notBigEnough.size() > 0) {
+
             return Collections.max(notBigEnough, new CompareSizeByArea());
+
         } else {
+
             Log.e(TAG, "Couldn't find any suitable preview size");
+
             return choices[0];
         }
 
@@ -479,6 +489,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (compress) {
 
                         mPhotoResultPath = filePath;
+
+                        Log.e(TAG, "run: "+ filePath);
 
                         Message.obtain(mUIHandler, SETIMAGE).sendToTarget();
 
